@@ -13,8 +13,17 @@ variable "public_key_path" {
   default =  "~/.ssh/id_rsa.pub"
 }
 
+variable "private_key_path" {
+  description = "Path to public SSH key"
+  default =  "~/.ssh/id_rsa"
+}
+
 variable "aws_instance_type" {
   default = "t3.micro"
+}
+
+variable "aws_jenkins_instance_type" {
+  default = "t3.small"
 }
 
 variable "aws_ami" {
