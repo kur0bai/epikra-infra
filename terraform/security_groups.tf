@@ -1,6 +1,7 @@
 resource "aws_security_group" "backend_sg" {
   name = "backend-sg"
 
+  #for ssh
   ingress {
     from_port   = 22
     to_port     = 22
@@ -8,6 +9,7 @@ resource "aws_security_group" "backend_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  #just same 80 :D
   ingress {
     from_port   = 80
     to_port     = 80

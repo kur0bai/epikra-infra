@@ -10,7 +10,7 @@ variable "key_name" {
 
 variable "public_key_path" {
   description = "Path to public SSH key"
-  default =  file("~/.ssh/id_rsa.pub")
+  default =  "~/.ssh/id_rsa.pub"
 }
 
 variable "aws_instance_type" {
