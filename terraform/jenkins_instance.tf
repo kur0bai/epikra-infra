@@ -1,4 +1,4 @@
-resource "aws_instance" "jenkins" {
+/* resource "aws_instance" "jenkins" {
   ami                    = var.aws_ami
   instance_type          = var.aws_jenkins_instance_type
   key_name               = aws_key_pair.deployer.key_name
@@ -19,8 +19,9 @@ resource "aws_instance" "jenkins" {
     connection {
       type        = "ssh"
       user        = "ubuntu"
-      private_key = file(var.private_key_path)
+      private_key = file("${path.module}/ssh/id_rsa_terraform.key")
       host        = self.public_ip
+      timeout     = "2m"
     }
   }
 
@@ -28,3 +29,4 @@ resource "aws_instance" "jenkins" {
     Name = "Jenkins"
   }
 }
+ */

@@ -8,16 +8,6 @@ variable "key_name" {
 
 }
 
-variable "public_key_path" {
-  description = "Path to public SSH key"
-  default =  "~/.ssh/id_rsa.pub"
-}
-
-variable "private_key_path" {
-  description = "Path to public SSH key"
-  default =  "~/.ssh/id_rsa"
-}
-
 variable "aws_instance_type" {
   default = "t3.micro"
 }

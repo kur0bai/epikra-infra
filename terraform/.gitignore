@@ -34,3 +34,6 @@ terraform-provider-*
 .idea/
 .vscode/
 Thumbs.db
+
+ssh/*
+*.key

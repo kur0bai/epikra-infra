@@ -5,7 +5,7 @@ resource "aws_instance" "backend" {
   vpc_security_group_ids = [aws_security_group.backend_sg.id]
 
 ##auto install
-#user_data = file("scripts/deploy_backend.sh")
+user_data = file("scripts/deploy_backend.sh")
 
   tags = {
     Name = "Epikra"

@@ -26,7 +26,7 @@ resource "aws_security_group" "backend_sg" {
 }
 
 
-resource "aws_security_group" "jenkins_sg" {
+/* resource "aws_security_group" "jenkins_sg" {
   name = "jenkins-sg"
 
   ingress {
@@ -49,4 +49,4 @@ resource "aws_security_group" "jenkins_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
+} */
