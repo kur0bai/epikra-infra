@@ -13,7 +13,7 @@ variable "aws_instance_type" {
 }
 
 variable "aws_jenkins_instance_type" {
-  default = "t3.small"
+  default = "t3.micro"
 }
 
 variable "aws_ami" {
