@@ -1,6 +1,6 @@
-# 🏗️ Epikra Infra – Infrastructure as Code (IaC) with Terraform
+# Epikra Infra – Infrastructure as Code (IaC) with Terraform
 
-This repository defines the infrastructure needed to deploy a **FastAPI** backend application in a minimal production-ready environment using **AWS** and **Terraform** for Infrastructure as Code (IaC).
+This repository defines the basic infrastructure needed to deploy a **FastAPI** backend application in a minimal production-ready environment using **AWS** and **Terraform** for Infrastructure as Code (IaC). This is only for development stage if you want to expand and configure for production enviroment, cool.
 
 ## 🚀 Architecture
 
@@ -40,7 +40,7 @@ infra/
 │   ├── key_pair/             # SSH key pair import
 │   ├── security_group/       # Firewall rules (open ports)
 │
-├── ssh/
-│   ├── id_rsa_terraform.key      # Private SSH key (DO NOT commit to version control)
-│   └── id_rsa_terraform.key.pub  # Public key used for EC2 access
+├── ssh/ #You need to create this folder on your local (DO NOT SHARE/UPLOAD IT please)
+│   ├── id_private.key      # Private SSH key
+│   └── id_public.key.pub  # Public key used for EC2 access
 ```
