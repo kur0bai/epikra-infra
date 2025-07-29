@@ -1,0 +1,39 @@
+# Terraform state files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Credentials and sensitive files (never commit these!)
+*.tfvars
+*.tfvars.json
+# If you use any specific credentials file, add it here
+# credentials.json
+# config.json
+
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# Backup files
+*.backup
+
+# Directory for remote modules downloaded by Terraform (if you use them)
+.terraform/modules/
+
+# Terraform plan files
+*.tfplan
+
+# Specific provider binaries (sometimes generated outside .terraform/)
+# If you see something like 'terraform-provider-aws_vX.Y.Z_xN', add it here
+terraform-provider-*
+
+# Cache or temporary files from editors/IDEs
+.DS_Store
+*.swp
+.idea/
+.vscode/
+Thumbs.db
+
+ssh/*
+*.key
