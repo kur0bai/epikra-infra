@@ -1,0 +1,61 @@
+- hosts: control
+  become: true
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update-cache: yes
+        upgrade: dist
+
+    - name: Install basic dependencies
+      apt:
+        name: ["git", "curl", "vim", "ssh", "openjdk-11-jdk"]
+        state: present
+
+    - name: Install Ansible
+      apt:
+        name: ansible
+        state: present
+
+    - name: Add Jenkins GPG key
+      apt_key:
+        url: https://pkg.jenkins.io/debian/jenkins.io-2023.key
+        state: present
+      retries: 3
+      delay: 5
+
+    - name: Add Jenkins repository
+      apt_repository:
+        repo: deb https://pkg.jenkins.io/debian-stable binary/
+        state: present
+        filename: jenkins
+        update_cache: yes
+      retries: 3
+      delay: 5
+
+    - name: Install Jenkins
+      apt:
+        name: ["openjdk-11-jdk", "jenkins"]
+        state: present
+
+    - name: Add HashiCorp key
+      shell: wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+      args:
+        creates: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+    - name: Add HashiCorp repository
+      apt_repository:
+        repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_lsb.codename }} main"
+        state: present
+
+    - name: Install Terraform
+      apt:
+        name: terraform
+        state: present
+
+    - name: Install kubectl
+      get_url:
+        url: "https://dl.k8s.io/release/{{ kubectl_version }}/bin/linux/amd64/kubectl"
+        dest: /usr/local/bin/kubectl
+        mode: "0755"
+      vars:
+        kubectl_version: "{{ lookup('url', 'https://dl.k8s.io/release/stable.txt') }}"
